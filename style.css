@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+.square {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-image: url('./assests/ground.png');
+}
+
+.board {
+    width: max-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(3, 200px) / repeat(3, 200px);
+}
+
+.mole:before {
+    content: url('./assests/mole.png');
+}
