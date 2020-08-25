@@ -8,11 +8,18 @@ let score = 0;
 let currentPos = null;
 
 btn.addEventListener('click', function () {
+    totalTime = 60;
+    timer.textContent = totalTime;
+    score = 0;
+    points.textContent = score;
     this.style.display = 'none';
     let timeLeft = setInterval(() => {
         totalTime--;
         timer.innerText = totalTime;
-        if (totalTime === 0) clearInterval((timeLeft));
+        if (totalTime === 0) {
+            clearInterval((timeLeft));
+            this.style.display = 'block';
+        };
     }, 1000);
     moveMole();
 });
@@ -29,7 +36,10 @@ const generateMole = () => {
 const moveMole = () => {
     let moleInteral = setInterval(() => {
         generateMole();
-        if (totalTime === 0) clearInterval(moleInteral);
+        if (totalTime === 0) {
+            clearInterval(moleInteral);
+            squares.forEach(square => square.classList.remove('mole'));
+        };
     }, 700);
 }
 
